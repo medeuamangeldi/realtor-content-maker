@@ -22,10 +22,10 @@ export default function PictoryPage() {
     // Start fake progress
     let current = 0;
     const interval = setInterval(() => {
-      current += Math.floor(Math.random() * 0.2) + 0.2; // random 1-5%
-      if (current >= 96) current = 96; // cap at 99%
+      current += Math.floor(Math.floor(Math.random() * 1) + 1);
+      if (current >= 96) current = 99;
       setProgress(current);
-    }, 300);
+    }, 2000);
 
     try {
       const res = await fetch("/api/pictory/scenes", {

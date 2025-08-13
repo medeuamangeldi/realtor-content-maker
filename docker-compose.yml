@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  realtor-content-generator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: realtor-content-generator
+    ports:
+      - "4000:4000"
+    restart: unless-stopped

@@ -143,30 +143,30 @@ export const POST = async (req: NextRequest) => {
     // 1) Generate scenes from scenario
     const scenes = await generateScenesFromScenario(scenario);
 
-    // 2) Get Pictory token
-    const token = await getAccessToken();
+    // // 2) Get Pictory token
+    // const token = await getAccessToken();
 
-    // 3) Create storyboard
-    const storyboardJobId = await createStoryboard(token, scenes);
+    // // 3) Create storyboard
+    // const storyboardJobId = await createStoryboard(token, scenes);
 
-    console.log("Storyboard Job ID:", storyboardJobId);
+    // console.log("Storyboard Job ID:", storyboardJobId);
 
-    // 4) Poll storyboard
-    await pollStoryboardJobStatus(storyboardJobId, token);
+    // // 4) Poll storyboard
+    // await pollStoryboardJobStatus(storyboardJobId, token);
 
-    // 5) Render video
-    const renderJobId = await renderVideo(token, storyboardJobId);
+    // // 5) Render video
+    // const renderJobId = await renderVideo(token, storyboardJobId);
 
-    // 6) Poll render
-    const videoData = await pollRenderVideoJobStatus(renderJobId, token);
+    // // 6) Poll render
+    // const videoData = await pollRenderVideoJobStatus(renderJobId, token);
 
-    console.log("Video Data:", videoData);
+    // console.log("Video Data:", videoData);
 
-    return NextResponse.json({
-      videoUrl: videoData.videoURL,
-      scenes,
-      jobId: renderJobId,
-    });
+    // return NextResponse.json({
+    //   videoUrl: videoData.videoURL,
+    //   scenes,
+    //   jobId: renderJobId,
+    // });
   } catch (err: any) {
     console.error(err);
     return NextResponse.json(
